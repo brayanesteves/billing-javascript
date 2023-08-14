@@ -1,0 +1,7 @@
+legend { margin-left:20px; font-size:20px; }
+input { width:auto; margin:10px; padding:5px; font-size:18px; }
+h1 { text-align:right; }
+h3 { margin:5px 0; }
+table { width:100%; margin-top:20px; border:none; text-align:center; }
+table td, table th { padding:5px; margin:0; border:1px solid #000000; }
+table tr td:last-child { text-align:right; }
