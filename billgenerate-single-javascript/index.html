@@ -23,10 +23,10 @@
             <div class="part2">
                 <fieldset>
                     <legend>Your Orders</legend>
-                    Barbecued chicken (20 USD): <input type="text" name="barbacued_chicken" id="barbacued_chicken" />  <br />
-                    Sushi (12 Rolls)   (6 USD): <input type="text" name="sushi_12_rolls"    id="sushi_12_rolls" /><br />
-                    Barbecue          (30 USD): <input type="text" name="barbacue"          id="barbacue" /><br />
-                    Hamburger         (10 USD): <input type="text" name="hambuguer"         id="hambuguer" />  <br />
+                    Barbecued chicken (20 USD): <input type="text" name="barbacued_chicken" id="barbacued_chicken" /><br />
+                    Sushi (12 Rolls)   (6 USD): <input type="text" name="sushi_12_rolls"    id="sushi_12_rolls" />   <br />
+                    Barbecue          (30 USD): <input type="text" name="barbacue"          id="barbacue" />         <br />
+                    Hamburger         (10 USD): <input type="text" name="hambuguer"         id="hambuguer" />        <br />
                 </fieldset>
             </div>
 
@@ -38,21 +38,16 @@
                 <h3>Your Name: <span id="your_name"></span></h3>
                 <h3>Email: <span id="your_email"></span></h3>
                 <table border="1">
-                    <tr>
+                    <thead>
                         <th>Menu</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Amout</th>
-                    </tr>
+                    </thead>
 
-                    <tr>
-                        <td>Hamburger</td>
-                        <td>10 USD</td>
-                        <td>1</td>
-                        <td>10x1 = 10</td>
-                    </tr>
+                    <tbody id="BillStatement"></tbody>
                 </table>
-                <h1>Total Amout: 10 USD</h1>
+                <h1>Total Amout: <span id="amount"></span> USD</h1>
             </fieldset>
         </div>
 
