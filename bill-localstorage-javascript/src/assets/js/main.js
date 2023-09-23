@@ -153,3 +153,7 @@ const calculateTotal = () => {
 amount.onkeyup = () => {
     calculateTotal();
 };
+
+amount.onchange = () => {
+    calculateTotal();
+};
