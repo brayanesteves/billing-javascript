@@ -10,6 +10,24 @@ const bodyTable         = document.getElementById("bodyTable");
 
 let arrayDetail = [];
 
+let arrayProducts = [
+    { id:1, name:"Product 1", price:3.00, },
+    { id:2, name:"Product 2", price:9.00, },
+    { id:3, name:"Product 3", price:18.00, },
+    { id:4, name:"Product 4", price:36.00, },
+];
+
+const fillProducts = () => {
+    arrayProducts.forEach((product, index) => {
+        const option     = document.createElement("option");
+        option.value     = product.id;
+        option.innerText = product.name;
+        selectDescription.appendChild(option);
+    });
+};
+
+fillProducts();
+
 const redrawTable = () => {
 
     bodyTable.innerHTML = "";
