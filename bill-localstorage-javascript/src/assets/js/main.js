@@ -31,6 +31,15 @@ let arrayProducts = [
     { id:4, name:"Product 4", price:36.00, },
 ];
 
+const checkInvoicesLocalStorage = () => {
+    const invoicesLocalStorage = JSON.parse(localStorage.getItem("invoices"));
+    //if(invoicesLocalStorage) {
+    //    invoice                    = invoicesLocalStorage;
+    //}
+    // Step 2.
+    invoice                    = invoicesLocalStorage || [];
+};
+
 const fillProducts = () => {
     arrayProducts.forEach((product, index) => {
         const option     = document.createElement("option");
