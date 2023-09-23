@@ -136,9 +136,11 @@ selectDescription.onchange = () => {
         priceUnit.value  = price;
         if(parseInt(amount.value) > 0) {
             priceTotal.value = parseFloat(amount.value) * parseFloat(price);
+            calculateTotal();
         } else {
             amount.value     = 0;
             priceTotal.value = 0.00;
+            calculateTotal();
         }
     }
 };
