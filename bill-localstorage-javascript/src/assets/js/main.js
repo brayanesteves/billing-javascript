@@ -28,6 +28,18 @@ const fillProducts = () => {
 
 fillProducts();
 
+const getProductNameById = (id) => {
+
+    const objectProduct = arrayProducts.find((product) => {
+        
+        if(product.id === parseInt(id)) {
+            return product;
+        }
+    });
+    console.log(objectProduct);
+    return objectProduct.name;
+};
+
 const redrawTable = () => {
 
     bodyTable.innerHTML = "";
@@ -37,7 +49,7 @@ const redrawTable = () => {
         row.innerHTML = `
             <td>${index}</td>
             <td>${detail.amount}</td>
-            <td>${detail.selectDescription}</td>
+            <td>${getProductNameById(detail.selectDescription)}</td>
             <td>${detail.priceUnit}</td>
             <td>${detail.priceTotal}</td>
         `;
