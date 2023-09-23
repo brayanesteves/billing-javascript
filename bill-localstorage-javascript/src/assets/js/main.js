@@ -7,3 +7,18 @@ const priceTotal        = document.getElementById("priceTotal");
 const add               = document.getElementById("add");
 
 let arrayDetail = [];
+
+formDetail.onsubmit = (e) => {
+    e.preventDefault();
+
+    // Creating detail object.
+    const objectDetail = {
+        amount:amount.value,
+        selectDescription:selectDescription.value,
+        priceUnit:priceUnit.value,
+        priceTotal:priceTotal.value,
+    };
+    console.log(objectDetail);
+    arrayDetail.push(objectDetail);
+    
+}
