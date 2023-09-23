@@ -20,6 +20,7 @@ const bodyTable         = document.getElementById("bodyTable");
 
 const saveBill          = document.getElementById("saveBill");
 
+let invoice     = [];
 let arrayDetail = [];
 
 let arrayProducts = [
@@ -101,4 +102,12 @@ saveBill.onclick = () => {
                   detail:arrayDetail,
     };
     // console.log(objectInvoice);
+
+    invoice.push(objectInvoice);
+
+    // Clean fields.
+    
+
+    // Save in the 'LocalStorage'.
+    localStorage.setItem('invoices', JSON.stringify(invoice));
 };
