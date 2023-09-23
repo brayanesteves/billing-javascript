@@ -150,6 +150,9 @@ saveBill.onclick = () => {
     // Clean fields.
     formCustomer.reset();
     formDetail.reset();
+
+    // Clean table 'tbody'.
+    arrayDetail = [];
     
     // Save in the 'LocalStorage'.
     localStorage.setItem('invoices', JSON.stringify(invoice));
