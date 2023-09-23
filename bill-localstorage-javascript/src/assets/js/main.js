@@ -1,12 +1,24 @@
 const formDetail = document.getElementById("formDetail");
 
+/*<DATA: CLIENT>*/
+const socialReason     = document.getElementById("socialReason");
+const identifyDocument = document.getElementById("identifyDocument");
+const number           = document.getElementById("number");
+const address          = document.getElementById("address");
+const date             = document.getElementById("date");
+/*<.DATA: CLIENT>*/
+
+/*<DATA: PRODUCT>*/
 const amount            = document.getElementById("amount");
 const selectDescription = document.getElementById("selectDescription");
 const priceUnit         = document.getElementById("priceUnit");
 const priceTotal        = document.getElementById("priceTotal");
 const add               = document.getElementById("add");
+/*<.DATA: PRODUCT>*/
 
 const bodyTable         = document.getElementById("bodyTable");
+
+const saveBill          = document.getElementById("saveBill");
 
 let arrayDetail = [];
 
@@ -68,13 +80,25 @@ formDetail.onsubmit = (e) => {
 
     // Creating detail object.
     const objectDetail = {
-        amount:amount.value,
+                   amount:amount.value,
         selectDescription:selectDescription.value,
-        priceUnit:priceUnit.value,
-        priceTotal:priceTotal.value,
+                priceUnit:priceUnit.value,
+               priceTotal:priceTotal.value,
     };
-    //console.log(objectDetail);
+    // console.log(objectDetail);
     arrayDetail.push(objectDetail);
     redrawTable();
-
 }
+
+saveBill.onclick = () => {
+    // Create the invoice header object.
+    let objectInvoice = {
+            socialReason:socialReason.value,
+                 address:address.value,
+                    date:date.value,
+                  number:number.value,
+        identifyDocument:identifyDocument.value,
+                  detail:arrayDetail,
+    };
+    // console.log(objectInvoice);
+};
