@@ -6,6 +6,7 @@ const identifyDocument = document.getElementById("identifyDocument");
 const number           = document.getElementById("number");
 const address          = document.getElementById("address");
 const date             = document.getElementById("date");
+const formCustomer     = document.getElementById("formCustomer");
 /*<.DATA: CLIENT>*/
 
 /*<DATA: PRODUCT>*/
@@ -49,8 +50,20 @@ const getProductNameById = (id) => {
             return product;
         }
     });
-    console.log(objectProduct);
+    // console.log(objectProduct);
     return objectProduct.name;
+};
+
+const getProductPriceUnitById = (id) => {
+
+    const objectProduct = arrayProducts.find((product) => {
+        
+        if(product.id === parseInt(id)) {
+            return product;
+        }
+    });
+    // console.log(objectProduct);
+    return objectProduct.price;
 };
 
 const redrawTable = () => {
@@ -106,8 +119,37 @@ saveBill.onclick = () => {
     invoice.push(objectInvoice);
 
     // Clean fields.
+    formCustomer.reset();
+    formDetail.reset();
     
-
     // Save in the 'LocalStorage'.
     localStorage.setItem('invoices', JSON.stringify(invoice));
+};
+
+selectDescription.onchange = () => {
+    if(selectDescription.value === '0') {
+        formDetail.reset();
+        return;
+    }
+    const price = getProductPriceUnitById(selectDescription.value);
+    if(price) {
+        priceUnit.value  = price;
+        if(parseInt(amount.value) > 0) {
+            priceTotal.value = parseFloat(amount.value) * parseFloat(price);
+        } else {
+            amount.value     = 0;
+            priceTotal.value = 0.00;
+        }
+    }
+};
+
+const calculateTotal = () => {
+    const amountAux    = amount.value;
+    const priceUnitAux = priceUnit.value;
+    const total        = parseFloat(amountAux) * parseFloat(priceUnitAux);
+    priceTotal.value   = total;
+};
+
+amount.onkeyup = () => {
+    calculateTotal();
 };
