@@ -83,10 +83,25 @@ const redrawTable = () => {
         let buttonDelete       = document.createElement("button");
         buttonDelete.classList.add("btn", "btn-danger");
         buttonDelete.innerText = "Delete";
+
+        buttonDelete.onclick = () => {
+            // console.log(detail);
+            deleteDetailById(detail.selectDescription);
+        };
+
         tdButtonDelete.appendChild(buttonDelete);
         row.appendChild(tdButtonDelete);
         bodyTable.appendChild(row);
     });
+};
+
+const deleteDetailById = (id) => {
+    arrayDetail = arrayDetail.filter((detail) => {
+        if(parseInt(id) !== parseInt(detail.selectDescription)) {
+            return detail;
+        }
+    });
+    redrawTable();
 };
 
 const addDetail = (objectDetail) => {
