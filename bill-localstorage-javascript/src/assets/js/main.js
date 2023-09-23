@@ -149,7 +149,7 @@ const calculateTotal = () => {
     const amountAux    = amount.value;
     const priceUnitAux = priceUnit.value;
     const total        = parseFloat(amountAux) * parseFloat(priceUnitAux);
-    priceTotal.value   = total;
+    priceTotal.value   = total.toFixed(2);
 };
 
 amount.onkeyup = () => {
