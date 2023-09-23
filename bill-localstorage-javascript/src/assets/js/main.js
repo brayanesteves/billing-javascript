@@ -89,6 +89,35 @@ const redrawTable = () => {
     });
 };
 
+const addDetail = (objectDetail) => {
+    // Search if in the object, exists in 'arrayDetail'.
+    // If so, add the amounts, I only appear in the arrangement.
+
+    // console.log(objectDetail);
+
+    const result = arrayDetail.find((detail) => {
+        if(parseInt(objectDetail.selectDescription) === parseInt(detail.selectDescription)) {
+            return detail;
+        }
+    });
+    if(result) {
+        arrayDetail = arrayDetail.map((detail) => {
+            if(parseInt(detail.selectDescription) === parseInt(objectDetail.selectDescription)) {
+                // Map object.
+                return {
+                               amount: parseInt(detail.amount) + parseInt(objectDetail.amount),
+                    selectDescription: detail.selectDescription,
+                           priceTotal: parseFloat(parseInt(detail.amount) + parseInt(objectDetail.amount)) * parseFloat(objectDetail.priceUnit),
+                           priceUnit: parseFloat(objectDetail.priceUnit),
+                };
+            }
+            return detail;
+        });
+    } else {
+        arrayDetail.push(objectDetail);
+    }
+};
+
 formDetail.onsubmit = (e) => {
     e.preventDefault();
 
@@ -100,7 +129,7 @@ formDetail.onsubmit = (e) => {
                priceTotal:priceTotal.value,
     };
     // console.log(objectDetail);
-    arrayDetail.push(objectDetail);
+    addDetail(objectDetail);
     redrawTable();
 }
 
